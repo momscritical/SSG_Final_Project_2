@@ -23,6 +23,7 @@ resource "null_resource" "copy_file" {
     destination = "${var.dummy_file_dest}"
   }
 }
+
 ################################### Copy Dummy Data ###################################
 resource "null_resource" "input_dummy_data" {
   connection {
