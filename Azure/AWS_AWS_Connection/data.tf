@@ -1,14 +1,9 @@
 ############################## AWS ##############################
 data "aws_vpc" "vpc" {
-  filter {
-    name   = "cidr"
-    values = ["10.0.0.0/16"] 
-  }
-
-  filter {
-    name   = "tag:Name"
-    values = ["Final-VPC"]
-  }
+    cidr_block = var.aws_vpc_ip_block
+    tags = {
+        Name = "Final-VPC"
+    }
 }
 
 ############################## Azure ##############################
