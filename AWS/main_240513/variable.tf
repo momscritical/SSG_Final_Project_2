@@ -168,7 +168,6 @@ variable "cluster_sg_config" {
   sensitive   = true
 }
 
-
 variable "app_sg_config" {
   description = "Security Group Configuration Values for Application Nodes"
   type        = object({

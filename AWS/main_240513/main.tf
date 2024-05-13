@@ -32,6 +32,7 @@ module "final_sg" {
 
   bastion_sg_name = var.bastion_sg_config.name
   cp_sg_name      = var.cp_sg_config.name
+  cluster_sg_name = var.cluster_sg_config.name
   app_sg_name     = var.app_sg_config.name
   set_sg_name     = var.set_sg_config.name
   db_sg_name      = var.db_sg_config.name
@@ -145,7 +146,7 @@ module "final_eks" {
   region                 = var.region
 
   cluster_subnet_ids     = module.final_vpc.eks_subnet_ids
-  cluster_security_group_ids = module.final_sg.
+  cluster_security_group_ids = module.final_sg.cluster_sg_id
   app_node_group_subnet_ids = module.final_vpc.app_subnet_id
   set_node_group_subnet_ids = module.final_vpc.set_subnet_id
 
