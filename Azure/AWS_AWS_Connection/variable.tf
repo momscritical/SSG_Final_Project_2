@@ -96,7 +96,7 @@ variable "aws_prefix" {
 
 variable "aws_loc" {
   type        = string
-  description = "Location"
+  description = "Region"
   default     = "ap-northeast-1"
 }
 
@@ -106,9 +106,9 @@ variable "aws_vpc_ip_block" {
   default     = "10.0.0.0/16"
 }
 
-variable "aws_subnet_ip_block_1" {
+variable "aws_subnet_ip_block" {
   type        = string
-  description = "CIDR block for subnet1"
+  description = "CIDR block for subnet"
   default     = "10.0.22.0/24"
 }
 
