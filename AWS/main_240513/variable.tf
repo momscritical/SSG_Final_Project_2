@@ -155,6 +155,20 @@ variable "cp_sg_config" {
   sensitive   = true
 }
 
+variable "cluster_sg_config" {
+  description = "Security Group Configuration Values for AWS EKS Cluster"
+  type        = object({
+    name     = string
+    ing_port = list(number)
+  })
+  default     = {
+    name     = "EKS-Cluster-SG"
+    ing_port = []
+  }
+  sensitive   = true
+}
+
+
 variable "app_sg_config" {
   description = "Security Group Configuration Values for Application Nodes"
   type        = object({

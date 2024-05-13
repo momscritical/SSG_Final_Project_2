@@ -13,6 +13,7 @@ yaml_files=(
     "code/web-svc.yaml"
     "code/ingress.yaml"
 )
+
 # 각 YAML 파일을 순서대로 적용
 for file in "${yaml_files[@]}"; do
     kubectl apply -f "$file"

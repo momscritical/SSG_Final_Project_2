@@ -24,6 +24,12 @@ variable "cluster_subnet_ids" {
   default     = []
 }
 
+variable "cluster_security_group_ids" {
+  description = "Security Group IDs Values for EKS Cluster"
+  type        = list(string)
+  default     = []
+}
+
 ################################# Node group Role #################################
 variable "node_group_role_name" {
   description = "IAM Role Name Values for EKS Node Group"

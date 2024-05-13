@@ -51,6 +51,13 @@ module "final_sg" {
       security_groups = [ module.final_sg.bastion_sg_id ]
     }
   ]
+
+  cluster_ing_rules = [
+    {
+      from_port       = var.cluster_sg_config.ing_port[0]
+      to_port         = var.cluster_sg_config.ing_port[0]
+    },
+  ]
   
   app_ing_rules = [
     {
@@ -138,6 +145,7 @@ module "final_eks" {
   region                 = var.region
 
   cluster_subnet_ids     = module.final_vpc.eks_subnet_ids
+  cluster_security_group_ids = module.final_sg.
   app_node_group_subnet_ids = module.final_vpc.app_subnet_id
   set_node_group_subnet_ids = module.final_vpc.set_subnet_id
 

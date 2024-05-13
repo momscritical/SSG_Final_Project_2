@@ -52,6 +52,32 @@ resource "aws_security_group" "cp" {
   }
 }
 
+resource "aws_security_group" "cluster" { 
+  name        = var.cluster_sg_name
+  description = "Security Group for AWS EKS Cluster"
+  vpc_id      = var.vpc_id
+
+  dynamic "ingress" {
+    for_each = var.cluster_ing_rules
+    content {
+      from_port       = ingress.value.from_port
+      to_port         = ingress.value.to_port
+      protocol        = "tcp"
+    }
+  }
+
+  egress {
+    from_port     = 0
+    to_port       = 0
+    protocol      = "-1"
+    cidr_blocks   = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = var.cluster_sg_name
+  }
+}
+
 resource "aws_security_group" "app" { 
   name        = var.app_sg_name
   description = "Security Group for Application Nodes"

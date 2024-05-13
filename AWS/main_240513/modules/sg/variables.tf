@@ -17,6 +17,12 @@ variable "cp_sg_name" {
   default     = ""
 }
 
+variable "cluster_sg_name" {
+  description = "The Name of the Security Group for EKS Cluster"
+  type        = string
+  default     = ""
+}
+
 variable "app_sg_name" {
   description = "The Name of the Security Group for Web Instance"
   type        = string
@@ -41,12 +47,6 @@ variable "elb_sg_name" {
   default     = ""
 }
 
-variable "cluster_sg_name" {
-  description = "The Name of the Security Group for EKS Cluster"
-  type        = string
-  default     = ""
-}
-
 #################################### Ingress Ports Values ####################################
 variable "bastion_ing_rules" {
   description = "List of ingress rules for Bastion Instance"
@@ -63,6 +63,15 @@ variable "cp_ing_rules" {
     from_port       = number
     to_port         = number
     security_groups = list(string)
+  }))
+  default     = []
+}
+
+variable "cluster_ing_rules" {
+  description = "List of ingress rules for WAS EKS Cluster"
+  type        = list(object({
+    from_port       = number
+    to_port         = number
   }))
   default     = []
 }
@@ -102,16 +111,6 @@ variable "elb_ing_rules" {
   type        = list(object({
     from_port       = number
     to_port         = number
-  }))
-  default     = []
-}
-
-variable "cluster_ing_rules" {
-  description = "List of ingress rules for WAS EKS Cluster"
-  type        = list(object({
-    from_port       = number
-    to_port         = number
-    security_groups = list(string)
   }))
   default     = []
 }
