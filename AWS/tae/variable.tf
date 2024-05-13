@@ -2,7 +2,7 @@
 variable "region" {
   description = "AWS region Values"
   type        = string
-  default     = "ap-northeast-1"
+  default     = "ap-northeast-3"
   sensitive = true
 }
 
@@ -10,7 +10,7 @@ variable "region" {
 variable "availability_zones" {
   description = "Availability Zones Values"
   type        = list(string)
-  default     = ["ap-northeast-1a", "ap-northeast-1c"]
+  default     = ["ap-northeast-3a", "ap-northeast-3c"]
   sensitive   = true
 }
 
@@ -256,7 +256,7 @@ variable "cp_config" {
 variable "cluster_role_name" {
     description = "Role Name Value for Cluster"
     type        = string
-    default     = "SSG-Final-2-Cluster-Role"
+    default     = "SSG-Final-2-Cluster-Role-3"
 }
 
 variable "cluster_name" {
@@ -274,7 +274,7 @@ variable "k8s_version" {
 variable "node_group_role_name" {
     description = "Role Name Value for Node Group"
     type        = string
-    default     = "SSG-Final-2-NodeGroup-Role"
+    default     = "SSG-Final-2-NodeGroup-Role-3"
 }
 
 variable "app_node_config" {
@@ -355,7 +355,7 @@ variable "service_account_name" {
 variable "oidc_role_name" {
   description = "Cluster OIDC URL Values"
   type = string
-  default = "ssg-final-3-oidc-s3-role"
+  default = "ssg-final-3-oidc-s3-role-3"
 }
 
 #################################### AWS RDS Values ####################################
@@ -389,7 +389,7 @@ variable "rds_config" {
     multi_az              = true
     publicly_accessible   = false
     skip_final_snapshot   = true
-    rds_subnet_group_name = "rds-subnet-group"
+    rds_subnet_group_name = "rds-subnet-group-3"
   }
   sensitive = true
 }
