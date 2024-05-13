@@ -5,4 +5,4 @@ metadata:
   namespace: dev
 spec:
   type: ExternalName
-  externalName: db.jumjoo.local
+  externalName: aws.jumjoo.com
