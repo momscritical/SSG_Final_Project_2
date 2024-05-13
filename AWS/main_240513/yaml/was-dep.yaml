@@ -15,10 +15,10 @@ spec:
       labels:
         app: was
     spec:
-      serviceAccountName: s3-sa
+      serviceAccountName: storage-sa
       containers:
       - name: was
-        image : jjy4041/ssgpang:8339614d60250ab6f51845dcaba3b3b6c1ebaeac
+        image: jjy4041/ssgpang:d88c62098044cf5d3da0113cd18adb0caa60d0f3
         ports:
         - containerPort: 80
         env:
@@ -32,6 +32,11 @@ spec:
             secretKeyRef:
               name: my-secrets
               key: GITHUB_TOKEN
+        - name: CLOUD_PROVIDER
+          valueFrom:
+            secretKeyRef:
+              name: my-secrets
+              key: CLOUD_PROVIDER
       tolerations:
       - key: "app"
         operator: "Equal"
