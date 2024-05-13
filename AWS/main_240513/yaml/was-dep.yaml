@@ -18,9 +18,20 @@ spec:
       serviceAccountName: s3-sa
       containers:
       - name: was
-        image: jjy4041/ssgpang:fc44b986355b7279eb831de15b0713a604606df2
+        image : jjy4041/ssgpang:8339614d60250ab6f51845dcaba3b3b6c1ebaeac
         ports:
         - containerPort: 80
+        env:
+        - name: AZURE_CONNECTION_STRING
+          valueFrom:
+            secretKeyRef:
+              name: my-secrets
+              key: AZURE_CONNECTION_STRING
+        - name: GITHUB_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: my-secrets
+              key: GITHUB_TOKEN
       tolerations:
       - key: "app"
         operator: "Equal"

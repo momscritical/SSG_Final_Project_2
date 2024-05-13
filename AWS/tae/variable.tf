@@ -394,7 +394,7 @@ variable "rds_config" {
   sensitive = true
 }
 
-#################################### Coppy Dummy Data Values ####################################
+#################################### Input Dummy Data Values ####################################
 variable "copy_config" {
   description = "Configuration Values for Copying Dummy Data"
 
