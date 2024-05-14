@@ -124,7 +124,11 @@ module "final_ec2" {
   cp_sg_id         = [module.final_sg.cp_sg_id]
   cp_subnet_id     = module.final_vpc.cp_subnet_id[0]
   cp_name          = var.cp_config.name
-  cp_user_data     = templatefile(var.cp_config.user_data, {}) 
+  cp_user_data     = templatefile(var.cp_config.user_data, {})
+
+  depends_on = [
+    module.final_sg
+  ]
 }
 
 module "final_eks" {
