@@ -126,9 +126,7 @@ module "final_ec2" {
   cp_name          = var.cp_config.name
   cp_user_data     = templatefile(var.cp_config.user_data, {})
 
-  depends_on = [
-    module.final_sg
-  ]
+  depends_on = [ module.final_sg ]
 }
 
 module "final_eks" {
@@ -186,9 +184,7 @@ module "final_irsa" {
   service_account_name = var.service_account_name
   oidc_role_name = var.oidc_role_name
 
-  depends_on = [ 
-    module.final_eks
-  ]
+  depends_on = [ module.final_eks ]
 }
 
 module "final_rds" {
