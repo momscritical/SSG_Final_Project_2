@@ -52,7 +52,7 @@ resource "azurerm_storage_container" "sc" {
   }
 }
 
-############################## Database ##############################
+############################## Azure SQL Database ##############################
 # Create Database
 resource "azurerm_mysql_flexible_server" "mysql_server" {
   name                   = "azure-db"
