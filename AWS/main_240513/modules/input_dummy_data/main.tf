@@ -36,7 +36,8 @@ resource "null_resource" "input_dummy_data" {
     inline = [
       "sudo scp -i ${var.private_key_dest} -o StrictHostKeyChecking=no ${var.dummy_file_dest} ec2-user@${var.cp_ip}:${var.dummy_file_dest}",
       "sudo ssh -i ${var.private_key_dest} -o StrictHostKeyChecking=no ec2-user@${var.cp_ip} 'sudo mariadb -u ${var.db_user_name} -p'${var.db_user_pass}' -P 3306 -h ${var.rds_address} ${var.db_name} < ${var.dummy_file_dest}'",
-      "sudo ssh -i ${var.private_key_dest} -o StrictHostKeyChecking=no ec2-user@${var.cp_ip} 'rm -rf ${var.dummy_file_dest}"
+      "sudo ssh -i ${var.private_key_dest} -o StrictHostKeyChecking=no ec2-user@${var.cp_ip} 'rm -rf ${var.dummy_file_dest}",
+      "sudo rm -rf ${var.dummy_file_dest}"
     ]
   }
 
