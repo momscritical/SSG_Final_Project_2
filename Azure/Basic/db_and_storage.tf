@@ -67,6 +67,7 @@ resource "azurerm_mysql_flexible_server" "mysql_server" {
     create_before_destroy = true
   }
 }
+
 # EndPoint for Database
 resource "azurerm_private_endpoint" "db_endpoint" {
   name                = "azure-db-endpoint"
@@ -93,4 +94,33 @@ resource "azurerm_private_endpoint" "db_endpoint" {
   }
 
   depends_on = [azurerm_mysql_flexible_server.mysql_server]
+}
+
+# Set Server Parameter
+resource "azurerm_mysql_flexible_server_configuration" "setting01" {
+  name                = "require_secure_transport"
+  resource_group_name = azurerm_resource_group.rg.name
+  server_name         = azurerm_mysql_flexible_server.mysql_server.name
+  value               = "OFF"
+}
+resource "azurerm_mysql_flexible_server_configuration" "setting02" {
+  name                = "character_set_server"
+  resource_group_name = azurerm_resource_group.rg.name
+  server_name         = azurerm_mysql_flexible_server.mysql_server.name
+  value               = "UTF8MB4"
+}
+resource "azurerm_mysql_flexible_server_configuration" "setting03" {
+  name                = "collation_server"
+  resource_group_name = azurerm_resource_group.rg.name
+  server_name         = azurerm_mysql_flexible_server.mysql_server.name
+  value               = "UTF8MB4_GENERAL_CI"
+}
+
+# Create Database
+resource "azurerm_mysql_flexible_database" "ssgpang" {
+  name                = "ssgpang"
+  resource_group_name = azurerm_resource_group.rg.name
+  server_name         = azurerm_mysql_flexible_server.mysql_server.name
+  charset             = "utf8mb4"
+  collation           = "utf8mb4_general_ci"
 }
