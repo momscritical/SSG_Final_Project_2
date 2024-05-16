@@ -47,7 +47,7 @@ variable "cp_subnet_config" {
     cidr = list(string)
   })
   default     = {
-    name = "Web-Subnet"
+    name = "ControlPlane-Subnet"
     cidr = ["10.0.3.0/24", "10.0.4.0/24"]
   }
   sensitive   = true
