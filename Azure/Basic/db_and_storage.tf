@@ -11,7 +11,7 @@ resource "azurerm_storage_account" "sa" {
     create_before_destroy = true
   }
 
-  depends_on = [ azurerm_resource_group ]
+  depends_on = [ azurerm_resource_group.rg ]
 }
 
 # EndPoint for Blob Storage
