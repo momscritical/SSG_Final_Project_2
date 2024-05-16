@@ -15,7 +15,7 @@ variable "az_prefix" {
 variable "az_loc" {
   description = "location"
   type        = string
-  default     = "koreaCentral"
+  default     = "japanEast"
 }
 
 ############################## Vurtual Network ##############################

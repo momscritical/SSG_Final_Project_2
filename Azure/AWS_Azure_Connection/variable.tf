@@ -8,7 +8,7 @@ variable "az_prefix" {
 variable "az_loc" {
   type        = string
   description = "Location"
-  default     = "koreaCentral"
+  default     = "japanEast"
 }
 
 variable "az_vnet_ip" {
