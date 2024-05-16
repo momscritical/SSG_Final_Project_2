@@ -8,4 +8,9 @@ resource "azurerm_subnet" "ep_subnet" {
   lifecycle {
     create_before_destroy = true
   }
+
+  depends_on = [
+    azurerm_resource_group.rg,
+    azurerm_virtual_network.vnet
+  ]
 }

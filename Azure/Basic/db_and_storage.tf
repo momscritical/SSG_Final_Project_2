@@ -10,6 +10,8 @@ resource "azurerm_storage_account" "sa" {
   lifecycle {
     create_before_destroy = true
   }
+
+  depends_on = [ azurerm_resource_group ]
 }
 
 # EndPoint for Blob Storage
@@ -102,18 +104,33 @@ resource "azurerm_mysql_flexible_server_configuration" "setting01" {
   resource_group_name = azurerm_resource_group.rg.name
   server_name         = azurerm_mysql_flexible_server.mysql_server.name
   value               = "OFF"
+
+  depends_on = [
+    azurerm_resource_group.rg,
+    azurerm_mysql_flexible_server.mysql_server
+  ]
 }
 resource "azurerm_mysql_flexible_server_configuration" "setting02" {
   name                = "character_set_server"
   resource_group_name = azurerm_resource_group.rg.name
   server_name         = azurerm_mysql_flexible_server.mysql_server.name
   value               = "UTF8MB4"
+
+  depends_on = [
+    azurerm_resource_group.rg,
+    azurerm_mysql_flexible_server.mysql_server
+  ]
 }
 resource "azurerm_mysql_flexible_server_configuration" "setting03" {
   name                = "collation_server"
   resource_group_name = azurerm_resource_group.rg.name
   server_name         = azurerm_mysql_flexible_server.mysql_server.name
   value               = "UTF8MB4_GENERAL_CI"
+
+  depends_on = [
+    azurerm_resource_group.rg,
+    azurerm_mysql_flexible_server.mysql_server
+  ]
 }
 
 # Create Database
@@ -123,4 +140,9 @@ resource "azurerm_mysql_flexible_database" "ssgpang" {
   server_name         = azurerm_mysql_flexible_server.mysql_server.name
   charset             = "utf8mb4"
   collation           = "utf8mb4_general_ci"
+
+  depends_on = [
+    azurerm_resource_group.rg,
+    azurerm_mysql_flexible_server.mysql_server
+  ]
 }
