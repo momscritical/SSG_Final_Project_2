@@ -4,6 +4,34 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   location            = data.azurerm_resource_group.rg.location
   resource_group_name = data.azurerm_resource_group.rg.name
 
+  oidc_issuer_enabled         = true
+  workload_identity_enabled   = true
+  node_resource_group         = "${var.az_prefix}_node_rg"
+
+  dns_prefix = "${var.az_prefix}Cluster"
+
+  identity {
+    type = "SystemAssigned"
+  }
+
+  linux_profile {
+    admin_username = var.uname
+
+    ssh_key {
+      key_data = file(var.ssh_public_key)
+    }
+  }
+
+  network_profile {
+    network_plugin     = "kubenet"
+    load_balancer_sku  = "standard"
+  }
+
+  # monitor_metrics {
+  #   annotations_allowed = 
+  #   labels_allowed = 
+  # }
+
   default_node_pool {
     name = "${var.az_basic.prefix}pool"
     vm_size = var.vm_size
@@ -29,29 +57,6 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
       poolType = "${var.az_basic.prefix}pool"
     }
   }
-
-  dns_prefix = "${var.az_prefix}Cluster"
-
-  identity {
-    type = "SystemAssigned"
-  }
-
-  linux_profile {
-    admin_username = var.uname
-
-    ssh_key {
-      key_data = file(var.ssh_public_key)
-    }
-  }
-
-  network_profile {
-    network_plugin     = "kubenet"
-    load_balancer_sku  = "standard"
-  }
-
-  oidc_issuer_enabled         = true
-  workload_identity_enabled   = true
-  node_resource_group         = "${var.az_prefix}_node_rg"
 }
 
 resource "azurerm_kubernetes_cluster_node_pool" "svc_pool" {

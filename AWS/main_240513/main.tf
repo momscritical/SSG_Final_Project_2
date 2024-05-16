@@ -12,7 +12,7 @@ module "final_vpc" {
 
   vpc_name            = var.vpc_config.name
   public_subnet_name  = var.public_subnet_config.name
-  cp_subnet_name      = var.public_subnet_config.name
+  cp_subnet_name      = var.cp_subnet_config.name
   app_subnet_name     = var.app_subnet_config.name
   set_subnet_name     = var.set_subnet_config.name
   db_subnet_name      = var.db_subnet_config.name
