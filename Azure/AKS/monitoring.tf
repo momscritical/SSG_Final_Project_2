@@ -20,7 +20,7 @@ resource "azurerm_log_analytics_workspace" "log_analytics" {
   }
 }
 
-resource "azurerm_monitor_workspace" "name" {
+resource "azurerm_monitor_workspace" "mws" {
   name = "${var.az_prefix}-Monitoring-Workspace"
   resource_group_name = data.azurerm_resource_group.rg.name
   location = data.azurerm_resource_group.rg.location
@@ -39,7 +39,7 @@ resource "azurerm_dashboard_grafana" "grafana" {
   zone_redundancy_enabled = false
 
   # 고급
-  api_key_enabled = false
+  api_key_enabled = true
   deterministic_outbound_ip_enabled = false
 
   # 권한
@@ -48,10 +48,21 @@ resource "azurerm_dashboard_grafana" "grafana" {
     # identity_ids = Grafana 대시보드에 액세스하는 ID.추가하려면, '소유자' 또는 '사용자 액세스 관리자' 구독이어야 함.
   }
 
+  azure_monitor_workspace_integrations {
+    resource_id = azurerm_monitor_workspace.mws.id
+  }
+
   # 네트워킹
   public_network_access_enabled = true
 
   lifecycle {
     create_before_destroy = true
   }
+}
+
+resource "azurerm_monitor_data_collection_endpoint" "dce" {
+  name                = "${var.az_prefix}-${azurerm_monitor_workspace.mws.location}-${data.azurerm_kubernetes_cluster.aks_cluster.name}"
+  resource_group_name = data.azurerm_resource_group.rg.name
+  location            = azurerm_monitor_workspace.mws.location
+  kind                = "Linux"
 }

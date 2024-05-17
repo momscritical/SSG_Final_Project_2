@@ -42,3 +42,8 @@ output "config_object_id" {
 output "federated_id" {
   value = azurerm_federated_identity_credential.kube-fic.id
 }
+
+# Output the grafana url for usability
+output "grafana_url" {
+  value = azurerm_dashboard_grafana.graf.endpoint
+}
