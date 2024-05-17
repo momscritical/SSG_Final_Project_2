@@ -27,10 +27,10 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     load_balancer_sku  = "standard"
   }
 
-  # monitor_metrics {
-  #   annotations_allowed = 
-  #   labels_allowed = 
-  # }
+  oms_agent {
+    # OMS 에이전트가 데이터를 보내야 하는 Log Analytics 작업 영역의 ID
+    log_analytics_workspace_id = azurerm_log_analytics_workspace.log_analytics.id
+  }
 
   default_node_pool {
     name = "${var.az_basic.prefix}pool"
@@ -57,6 +57,8 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
       poolType = "${var.az_basic.prefix}pool"
     }
   }
+
+  depends_on = [ azurerm_log_analytics_workspace.log_analytics ]
 }
 
 resource "azurerm_kubernetes_cluster_node_pool" "svc_pool" {
@@ -81,25 +83,27 @@ resource "azurerm_kubernetes_cluster_node_pool" "svc_pool" {
   tags = {
     poolType = "${var.az_svc.prefix}pool"
   }
+  
+  depends_on = [ azurerm_log_analytics_workspace.log_analytics ]
 }
 
-# resource "azurerm_log_analytics_workspace" "log_analytics" {
-#   name                = "${var.az_svc.prefix}acc-01"
-#   location            = data.azurerm_resource_group.rg.location
-#   resource_group_name = data.azurerm_resource_group.rg.name
+resource "azurerm_log_analytics_workspace" "log_analytics" {
+  name                = "${var.az_svc.prefix}acc-01"
+  location            = data.azurerm_resource_group.rg.location
+  resource_group_name = data.azurerm_resource_group.rg.name
 
-#   # Log Analytics 작업 영역에서 사용자가 작업 영역에 대한 권한 없이,
-#   # 보기 권한이 있는 리소스와 연결된 데이터에 액세스하도록 허용하는지 여부
-#   allow_resource_only_permissions = false
+  # Log Analytics 작업 영역에서 사용자가 작업 영역에 대한 권한 없이,
+  # 보기 권한이 있는 리소스와 연결된 데이터에 액세스하도록 허용하는지 여부
+  allow_resource_only_permissions = false
 
-#   # Log Analytics 작업 영역이 Azure AD를 사용하여 인증을 적용해야 하는지 여부를 지정
-#   local_authentication_disabled = false
+  # Log Analytics 작업 영역이 Azure AD를 사용하여 인증을 적용해야 하는지 여부를 지정
+  local_authentication_disabled = false
 
-#   # 가격 정책
-#   sku                 = "PerGB2018"
-#   # 데이터 보존 기간 =  7(프리 티어만 해당) 또는 30~730 범위
-#   retention_in_days   = 30
-# }
+  # 가격 정책
+  sku                 = "PerGB2018"
+  # 데이터 보존 기간 =  7(프리 티어만 해당) 또는 30~730 범위
+  retention_in_days   = 30
+}
 
 # resource "azurerm_monitor_workspace" "monitor_workspace" {
 #   name = "${var.az_svc.prefix}monitor_workspace"
