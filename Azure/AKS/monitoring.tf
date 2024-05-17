@@ -14,12 +14,20 @@ resource "azurerm_log_analytics_workspace" "log_analytics" {
   sku                 = "PerGB2018"
   # 데이터 보존 기간 =  7(프리 티어만 해당) 또는 30~730 범위
   retention_in_days   = 30
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "azurerm_monitor_workspace" "name" {
   name = "${var.az_prefix}-Monitoring-Workspace"
   resource_group_name = data.azurerm_resource_group.rg.name
   location = data.azurerm_resource_group.rg.location
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "azurerm_dashboard_grafana" "grafana" {
@@ -42,6 +50,8 @@ resource "azurerm_dashboard_grafana" "grafana" {
 
   # 네트워킹
   public_network_access_enabled = true
-  
-  auto_generated_domain_name_label_scope = "TenantReuse"
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }

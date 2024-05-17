@@ -58,6 +58,10 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     }
   }
 
+  lifecycle {
+    create_before_destroy = true
+  }
+
   depends_on = [ azurerm_log_analytics_workspace.log_analytics ]
 }
 
