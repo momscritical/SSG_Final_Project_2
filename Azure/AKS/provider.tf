@@ -13,9 +13,17 @@ terraform {
     helm = {
       source  = "hashicorp/helm"
     }
+    azapi = {
+      source = "Azure/azapi"
+      version = "1.13.1"
+    }
   }
 }
 
 provider "azurerm" {
   features {}
+}
+
+provider "azapi" {
+  # Configuration options
 }
