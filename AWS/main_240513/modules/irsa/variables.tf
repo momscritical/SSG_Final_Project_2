@@ -19,11 +19,11 @@ variable "thumbprint_list" {
 variable "service_account_name" {
   description = "Name Values for EKS Service Account"
   type = list(string)
-  default = ["system:serviceaccount:dev:s3-sa"]
+  default = ["system:serviceaccount:dev:storage-sa"]
 }
 
 variable "oidc_role_name" {
   description = "Cluster OIDC URL Values"
   type = string
-  default = "SSG-Final-3-OIDC-S3-Role"
+  default = "ssg-final-3-oidc-s3-role"
 }
