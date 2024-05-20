@@ -103,13 +103,13 @@ variable "aws_loc" {
 variable "aws_vpc_ip_block" {
   type        = string
   description = "Virtual network IP"
-  default     = "10.0.0.0/16"
+  default     = "10.1.0.0/16"
 }
 
 variable "aws_subnet_ip_block" {
   type        = string
   description = "CIDR block for subnet"
-  default     = "10.0.22.0/24"
+  default     = "10.1.22.0/24"
 }
 
 variable "aws_customer_gw" {
