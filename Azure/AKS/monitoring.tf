@@ -28,6 +28,11 @@ resource "azurerm_monitor_workspace" "mws" {
   lifecycle {
     create_before_destroy = true
   }
+
+  depends_on = [
+    azurerm_kubernetes_cluster.aks_cluster,
+    azurerm_kubernetes_cluster_node_pool.svc_pool
+  ]
 }
 
 resource "azurerm_dashboard_grafana" "graf" {
@@ -58,6 +63,11 @@ resource "azurerm_dashboard_grafana" "graf" {
   lifecycle {
     create_before_destroy = true
   }
+
+  depends_on = [
+    azurerm_kubernetes_cluster.aks_cluster,
+    azurerm_kubernetes_cluster_node_pool.svc_pool
+  ]
 }
 
 resource "azurerm_monitor_data_collection_endpoint" "dce" {
@@ -65,4 +75,9 @@ resource "azurerm_monitor_data_collection_endpoint" "dce" {
   resource_group_name = data.azurerm_resource_group.rg.name
   location            = azurerm_monitor_workspace.mws.location
   kind                = "Linux"
+
+  depends_on = [
+    azurerm_kubernetes_cluster.aks_cluster,
+    azurerm_kubernetes_cluster_node_pool.svc_pool
+  ]
 }
