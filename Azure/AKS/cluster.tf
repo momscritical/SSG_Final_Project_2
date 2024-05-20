@@ -1,6 +1,6 @@
 # Create AKS Cluster
 resource "azurerm_kubernetes_cluster" "aks_cluster" {
-  name                = "${var.az_prefix}_cluster"
+  name                = "${var.az_prefix}-cluster"
   location            = data.azurerm_resource_group.rg.location
   resource_group_name = data.azurerm_resource_group.rg.name
 
