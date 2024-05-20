@@ -341,7 +341,7 @@ variable "set_node_config" {
 variable "ingress_controller_yaml" {
   description = "Location Values about Ingress Controller Manifest File"
   type        = string
-  default     = "../../Yaml/code/ingress-controller.yaml"
+  default     = "./yaml/ingress-controller.yaml"
   sensitive   = true
 }
 
