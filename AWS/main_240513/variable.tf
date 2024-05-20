@@ -341,7 +341,7 @@ variable "set_node_config" {
 variable "ingress_controller_yaml" {
   description = "Location Values about Ingress Controller Manifest File"
   type        = string
-  default     = "./yaml/ingress-controller.yaml"
+  default     = "../../Yaml/code/ingress-controller.yaml"
   sensitive   = true
 }
 
@@ -413,4 +413,11 @@ variable "copy_config" {
   }
 
   sensitive = true
+}
+
+#################################### Monitoring Values ####################################
+variable "prometheus_yaml_loc" {
+  description = "The Location Valuse for Prometheus Yaml"
+  type        = string
+  default     = "../../Yaml/code/prometheus_values.yaml"
 }
