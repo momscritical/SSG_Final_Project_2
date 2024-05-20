@@ -98,54 +98,54 @@
 #   depends_on = [azurerm_mysql_flexible_server.mysql_server]
 # }
 
-# Set Server Parameter
-resource "azurerm_mysql_flexible_server_configuration" "setting01" {
-  name                = "require_secure_transport"
-  resource_group_name = azurerm_resource_group.rg.name
-  server_name         = azurerm_mysql_flexible_server.mysql_server.name
-  value               = "OFF"
+# # Set Server Parameter
+# resource "azurerm_mysql_flexible_server_configuration" "setting01" {
+#   name                = "require_secure_transport"
+#   resource_group_name = azurerm_resource_group.rg.name
+#   server_name         = azurerm_mysql_flexible_server.mysql_server.name
+#   value               = "OFF"
 
-  depends_on = [
-    azurerm_resource_group.rg,
-    azurerm_mysql_flexible_server.mysql_server
-  ]
-}
-resource "azurerm_mysql_flexible_server_configuration" "setting02" {
-  name                = "character_set_server"
-  resource_group_name = azurerm_resource_group.rg.name
-  server_name         = azurerm_mysql_flexible_server.mysql_server.name
-  value               = "UTF8MB4"
+#   depends_on = [
+#     azurerm_resource_group.rg,
+#     azurerm_mysql_flexible_server.mysql_server
+#   ]
+# }
+# resource "azurerm_mysql_flexible_server_configuration" "setting02" {
+#   name                = "character_set_server"
+#   resource_group_name = azurerm_resource_group.rg.name
+#   server_name         = azurerm_mysql_flexible_server.mysql_server.name
+#   value               = "UTF8MB4"
 
-  depends_on = [
-    azurerm_resource_group.rg,
-    azurerm_mysql_flexible_server.mysql_server
-  ]
-}
-resource "azurerm_mysql_flexible_server_configuration" "setting03" {
-  name                = "collation_server"
-  resource_group_name = azurerm_resource_group.rg.name
-  server_name         = azurerm_mysql_flexible_server.mysql_server.name
-  value               = "UTF8MB4_GENERAL_CI"
+#   depends_on = [
+#     azurerm_resource_group.rg,
+#     azurerm_mysql_flexible_server.mysql_server
+#   ]
+# }
+# resource "azurerm_mysql_flexible_server_configuration" "setting03" {
+#   name                = "collation_server"
+#   resource_group_name = azurerm_resource_group.rg.name
+#   server_name         = azurerm_mysql_flexible_server.mysql_server.name
+#   value               = "UTF8MB4_GENERAL_CI"
 
-  depends_on = [
-    azurerm_resource_group.rg,
-    azurerm_mysql_flexible_server.mysql_server
-  ]
-}
+#   depends_on = [
+#     azurerm_resource_group.rg,
+#     azurerm_mysql_flexible_server.mysql_server
+#   ]
+# }
 
-# Create Database
-resource "azurerm_mysql_flexible_database" "ssgpang" {
-  name                = "ssgpang"
-  resource_group_name = azurerm_resource_group.rg.name
-  server_name         = azurerm_mysql_flexible_server.mysql_server.name
-  charset             = "utf8mb4"
-  collation           = "utf8mb4_general_ci"
+# # Create Database
+# resource "azurerm_mysql_flexible_database" "ssgpang" {
+#   name                = "ssgpang"
+#   resource_group_name = azurerm_resource_group.rg.name
+#   server_name         = azurerm_mysql_flexible_server.mysql_server.name
+#   charset             = "utf8mb4"
+#   collation           = "utf8mb4_general_ci"
 
-  depends_on = [
-    azurerm_resource_group.rg,
-    azurerm_mysql_flexible_server.mysql_server
-  ]
-}
+#   depends_on = [
+#     azurerm_resource_group.rg,
+#     azurerm_mysql_flexible_server.mysql_server
+#   ]
+# }
 
 
 
