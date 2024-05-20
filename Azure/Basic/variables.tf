@@ -1,10 +1,10 @@
 ## azure ip
-# 10.1.0.0/16 : virtual network
-# 10.1.1.0/24 : GatewaySubnet
-# 10.1.2.0/24 : endpoint subnet ( SQL server, Storage )
+# 10.0.0.0/16 : virtual network
+# 10.0.1.0/24 : GatewaySubnet
+# 10.0.2.0/24 : endpoint subnet ( SQL server, Storage )
 # DO NOT SET [delegate subnet] when you need private endpoint
-# 10.1.10.0/24 : basic subnet (for aks)
-# 10.1.11.0/24 : service subnet (for aks)
+# 10.0.10.0/24 : basic subnet (for aks)
+# 10.0.11.0/24 : service subnet (for aks)
 ############################## Basic ##############################
 variable "az_prefix" {
   description = "name prefix"
@@ -22,7 +22,7 @@ variable "az_loc" {
 variable "az_vnet_ip" {
   description = "Virtual Network IP"
   type        = string
-  default     = "10.1.0.0/16"
+  default     = "10.0.0.0/16"
 }
 
 ############################## End Point ##############################
@@ -41,12 +41,12 @@ variable "az_ep" {
 
   default = {
     prefix                  = "ep"
-    sub_ip_address          = "10.1.2.0/24"
+    sub_ip_address          = "10.0.2.0/24"
     sub_service_endpoints   = ["Microsoft.Sql", "Microsoft.Storage"]
     storage_static_name     = "storage_static_ip"
-    storage_static_ip       = "10.1.2.100"
+    storage_static_ip       = "10.0.2.100"
     db_static_name          = "db_static_ip"
-    db_static_ip            = "10.1.2.101"
+    db_static_ip            = "10.0.2.101"
   }
 }
 

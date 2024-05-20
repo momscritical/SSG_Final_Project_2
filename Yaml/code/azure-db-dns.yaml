@@ -5,4 +5,4 @@ metadata:
   namespace: dev
 spec:
   type: ExternalName
-  externalName: 10.1.2.101
+  externalName: 10.0.2.101

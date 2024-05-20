@@ -16,9 +16,9 @@ variable "az_basic" {
 
   default = {
     prefix              = "basic"
-    sub_ip_address      = "10.1.10.0/24"
+    sub_ip_address      = "10.0.10.0/24"
     sub_service_endpoints = []
-    private_ip          = "10.1.10.10"
+    private_ip          = "10.0.10.10"
   }
   sensitive = true
 }
@@ -33,7 +33,7 @@ variable "az_svc" {
 
   default = {
     prefix              = "svc"
-    sub_ip_address      = "10.1.11.0/24"
+    sub_ip_address      = "10.0.11.0/24"
     sub_service_endpoints = ["Microsoft.Storage", "Microsoft.Sql"]
   }
   sensitive = true

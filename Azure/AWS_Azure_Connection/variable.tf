@@ -14,7 +14,7 @@ variable "az_loc" {
 variable "az_vnet_ip" {
   type        = string
   description = "Virtual network IP"
-  default     = "10.1.0.0/16"
+  default     = "10.0.0.0/16"
 }
 
 variable "az_gw_subnet" {
@@ -22,7 +22,7 @@ variable "az_gw_subnet" {
   description = "GatewaySubnet data"
   default     = {
     name           = "GatewaySubnet"
-    address_prefix = "10.1.1.0/24"
+    address_prefix = "10.0.1.0/24"
   }
 }
 
