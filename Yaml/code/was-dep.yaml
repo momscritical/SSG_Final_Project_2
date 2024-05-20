@@ -18,7 +18,7 @@ spec:
       serviceAccountName: storage-sa
       containers:
       - name: was
-        image: jjy4041/ssgpang:d88c62098044cf5d3da0113cd18adb0caa60d0f3
+        image: jjy4041/ssgpang:bca45267fd80931c5904713a946a7eba9309e9ab
         ports:
         - containerPort: 80
         env:
