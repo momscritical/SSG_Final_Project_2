@@ -1,13 +1,3 @@
-provider "helm" { # apply 오류 있어서 추가했음
-  kubernetes {
-    config_path = "~/.kube/config"
-  }
-}
-
-provider "kubernetes" { # apply 오류 있어서 추가함 
-  config_path = "~/.kube/config"
-}
-
 resource "kubernetes_namespace" "prometheus-namespace" { # namespace 생성
   metadata {
     name = "prometheus"
