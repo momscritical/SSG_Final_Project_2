@@ -22,7 +22,7 @@ variable "vpc_config" {
   })
   default     = {
     name = "Final-VPC"
-    cidr = "10.1.0.0/16"
+    cidr = "10.0.0.0/16"
   }
   sensitive   = true
 }
@@ -35,7 +35,7 @@ variable "public_subnet_config" {
   })
   default     = {
     name = "Public-Subnet"
-    cidr = ["10.1.1.0/24", "10.1.2.0/24"]
+    cidr = ["10.0.1.0/24", "10.0.2.0/24"]
   }
   sensitive   = true
 }
@@ -48,7 +48,7 @@ variable "cp_subnet_config" {
   })
   default     = {
     name = "ControlPlane-Subnet"
-    cidr = ["10.1.3.0/24", "10.1.4.0/24"]
+    cidr = ["10.0.3.0/24", "10.0.4.0/24"]
   }
   sensitive   = true
 }
@@ -61,7 +61,7 @@ variable "app_subnet_config" {
   })
   default     = {
     name = "App-Subnet"
-    cidr = ["10.1.11.0/24", "10.1.12.0/24"]
+    cidr = ["10.0.11.0/24", "10.0.12.0/24"]
   }
   sensitive   = true
 }
@@ -74,7 +74,7 @@ variable "set_subnet_config" {
   })
   default     = {
     name = "Set-Subnet"
-    cidr = ["10.1.101.0/24", "10.1.102.0/24"]
+    cidr = ["10.0.101.0/24", "10.0.102.0/24"]
   }
   sensitive   = true
 }
@@ -87,7 +87,7 @@ variable "db_subnet_config" {
   })
   default     = {
     name = "DB-Subnet"
-    cidr = ["10.1.201.0/24", "10.1.202.0/24"]
+    cidr = ["10.0.201.0/24", "10.0.202.0/24"]
   }
   sensitive   = true
 }
