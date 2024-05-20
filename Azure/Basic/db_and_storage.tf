@@ -29,9 +29,9 @@
 #   }
 
 #   ip_configuration {
-#     name              = var.az_ep.storage_static_name
+#     name               = var.az_ep.storage_static_name
 #     private_ip_address = var.az_ep.storage_static_ip
-#     subresource_name  = "blob"
+#     subresource_name   = "blob"
 #     # 위쪽 블록의 subresource_names에 맞춰서 써야합니다.
 #   }
 
@@ -68,17 +68,19 @@
 #   lifecycle {
 #     create_before_destroy = true
 #   }
+
+#   depends_on = [ azurerm_resource_group.rg ]
 # }
 
 # # EndPoint for Database
 # resource "azurerm_private_endpoint" "db_endpoint" {
-#   name                = "ssgpangstoragebox-db-endpoint"
+#   name                = "azure-db-endpoint"
 #   location            = var.az_loc
 #   resource_group_name = azurerm_resource_group.rg.name
 #   subnet_id           = azurerm_subnet.ep_subnet.id
 
 #   private_service_connection {
-#     name                           = "ssgpangstoragebox-db-connection"
+#     name                           = "azure-db-connection"
 #     private_connection_resource_id = azurerm_mysql_flexible_server.mysql_server.id
 #     subresource_names              = ["mysqlServer"]
 #     is_manual_connection           = false
@@ -110,6 +112,7 @@
 #     azurerm_mysql_flexible_server.mysql_server
 #   ]
 # }
+
 # resource "azurerm_mysql_flexible_server_configuration" "setting02" {
 #   name                = "character_set_server"
 #   resource_group_name = azurerm_resource_group.rg.name
@@ -121,6 +124,7 @@
 #     azurerm_mysql_flexible_server.mysql_server
 #   ]
 # }
+
 # resource "azurerm_mysql_flexible_server_configuration" "setting03" {
 #   name                = "collation_server"
 #   resource_group_name = azurerm_resource_group.rg.name
@@ -142,10 +146,11 @@
 #   collation           = "utf8mb4_general_ci"
 
 #   depends_on = [
-#     azurerm_resource_group.rg,
+#     azurerm_resource_group.rg, 
 #     azurerm_mysql_flexible_server.mysql_server
 #   ]
 # }
+
 
 
 
