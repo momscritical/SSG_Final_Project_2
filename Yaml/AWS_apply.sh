@@ -12,6 +12,7 @@ yaml_files=(
     "code/web-dep.yaml"
     "code/web-svc.yaml"
     "code/ingress.yaml"
+    "https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml"
 )
 
 # 각 YAML 파일을 순서대로 적용
