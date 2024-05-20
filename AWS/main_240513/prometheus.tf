@@ -11,7 +11,7 @@ resource "helm_release" "prometheus" { # helm release 를 사용해서 prometheu
   create_namespace = true
   version    = "45.7.1"
   values = [
-    file("../../Yaml/code/prometheus_values.yaml")
+    file("../../Yaml/prometheus_values.yaml")
   ]
   timeout = 2000
 
