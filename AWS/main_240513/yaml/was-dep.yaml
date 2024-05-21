@@ -6,7 +6,7 @@ metadata:
   labels:
     app: was
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: was
@@ -18,7 +18,7 @@ spec:
       serviceAccountName: storage-sa
       containers:
       - name: was
-        image: jjy4041/ssgpang:f3099b9c8652400cbca91280944213b2a45d0c79
+        image: jjy4041/ssgpang:174d39c866cf1248f3c2d3db12fc7f46d99692e1
         ports:
         - containerPort: 80
         env:
