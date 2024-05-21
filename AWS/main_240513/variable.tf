@@ -419,5 +419,5 @@ variable "copy_config" {
 variable "prometheus_yaml_loc" {
   description = "The Location Valuse for Prometheus Yaml"
   type        = string
-  default     = "../../Yaml/code/prometheus_values.yaml"
+  default     = "../../Yaml/prometheus_values.yaml"
 }
