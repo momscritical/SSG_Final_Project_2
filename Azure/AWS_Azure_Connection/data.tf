@@ -6,6 +6,12 @@ data "aws_vpc" "vpc" {
     }
 }
 
+data "aws_route_table" "rt" {
+    tags = {
+        Name = "Private-Routing-Table"
+    }
+}
+
 ############################## Azure ##############################
 data "azurerm_resource_group" "rg" {
     name = "${var.az_prefix}_rg"
