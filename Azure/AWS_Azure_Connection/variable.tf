@@ -2,7 +2,7 @@
 variable "az_prefix" {
   type        = string
   description = "Name prefix"
-  default     = "Final"
+  default     = "need"
 }
 
 variable "az_loc" {
