@@ -254,11 +254,13 @@ module "final_copy" {
   ]
 }
 
-# module "final_monitoring" {
-#   source = "./modules/monitoring"
+module "final_monitoring" {
+  source = "./modules/monitoring"
 
-#   prometheus_yaml_loc = var.prometheus_yaml_loc
-# }
+  prometheus_yaml_loc = var.prometheus_yaml_loc
+}
+
+
 
 # # Kubernetes Ingress Nginx Controller를 사용하기 때문에 사용 x
 # module "final_lb" {

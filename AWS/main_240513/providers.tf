@@ -29,12 +29,12 @@ provider "aws" {
   region = var.region
 }
 
-provider "helm" { # apply 오류 있어서 추가했음
+provider "helm" {
   kubernetes {
     config_path = "~/.kube/config"
   }
 }
 
-provider "kubernetes" { # apply 오류 있어서 추가함 
+provider "kubernetes" {
   config_path = "~/.kube/config"
 }

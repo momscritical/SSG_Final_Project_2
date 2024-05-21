@@ -2,7 +2,10 @@
 #   metadata {
 #     name = "prometheus"
 #   }
+
+#   depends_on = [ module.final_eks ]
 # }
+
 # resource "helm_release" "prometheus" { # helm release 를 사용해서 prometheus 설치 
 #   name       = "prometheus"
 #   repository = "https://prometheus-community.github.io/helm-charts"
@@ -40,4 +43,6 @@
 #       }
 #     })
 #   }
+  
+#   depends_on = [ module.final_eks ]
 # }

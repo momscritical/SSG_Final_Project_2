@@ -30,6 +30,7 @@ data "aws_eks_cluster" "final_eks" {
 
   depends_on = [ module.final_eks ]
 }
+
 data "aws_eks_cluster_auth" "final_eks" {
   name = var.cluster_name
 

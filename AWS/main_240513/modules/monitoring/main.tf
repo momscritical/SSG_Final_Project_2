@@ -19,7 +19,6 @@ resource "helm_release" "prometheus" { # Helm 릴리스 설정
   ]
   timeout = 2000 # Helm 차트 설치가 완료되기까지 대기할 최대 시간 설정
 
-
   set { # 설정 설정
     name  = "podSecurityPolicy.enabled" # Pod Security Policy 활성화 여부 설정
     value = true
