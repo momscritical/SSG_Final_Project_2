@@ -97,7 +97,7 @@ variable "aws_prefix" {
 variable "aws_loc" {
   type        = string
   description = "Region"
-  default     = "ap-northeast-2"
+  default     = "ap-northeast-1"
 }
 
 variable "aws_vpc_ip_block" {
