@@ -42,7 +42,7 @@ spec:
           service:
             name: argocd-server
             port:
-              name: https
+              number: 80
   tls:
   - hosts:
     - arg.jumjoo.com
