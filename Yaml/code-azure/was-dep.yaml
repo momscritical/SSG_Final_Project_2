@@ -19,7 +19,7 @@ spec:
       containers:
       - name: was
         # image: jjy4041/ssgpang:c68af1869b43f22494f2781230e770b8c60f928a
-        image: jjy4041/ssgpang:f53256f6848e99b829065afa60efa2d438bf8dba
+        image: jjy4041/ssgpang:8d4fa8bed77283863e0c6205c88244c150b185ad
         ports:
         - containerPort: 80
         env:
