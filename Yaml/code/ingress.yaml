@@ -5,6 +5,7 @@ metadata:
   name: ingress
   annotations:
     #nginx.ingress.kubernetes.io/upstream-hash-by: "true"
+    #nginx.ingress.kubernetes.io/group.name: "ssgpang"
 spec:
   ingressClassName: nginx
   rules:
