@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: grafana.monitor.jumjoo.com
+  - host: gra.jumjoo.com
     http:
       paths:
       - path: /
@@ -19,6 +19,15 @@ spec:
             name: prometheus-grafana
             port:
               number: 80
+    https:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: prometheus-grafana
+            port:
+              number: 443
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -31,7 +40,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: argocd.monitor.jumjoo.com
+  - host: arg.jumjoo.com
     http:
       paths:
       - path: /
@@ -41,11 +50,20 @@ spec:
             name: argocd-server
             port:
               number: 80
+    https:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: argocd-server
+            port:
+              number: 443
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-argo
+  name: ingress-app
   namespace: dev
   annotations:
     kubernetes.io/ingress.class: "nginx"
@@ -63,3 +81,31 @@ spec:
             name: web-svc
             port:
               number: 80
+    https:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: web-svc
+            port:
+              number: 443
+  - host: jumjoo.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: web-svc
+            port:
+              number: 80
+    https:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: web-svc
+            port:
+              number: 443
