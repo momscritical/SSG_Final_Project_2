@@ -72,7 +72,7 @@ spec:
           service:
             name: argocd-server
             port:
-              number: 443
+              number: 80
               # name: http <- 대체 가능
   tls:
   - hosts:
