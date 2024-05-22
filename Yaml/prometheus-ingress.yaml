@@ -2,14 +2,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   namespace: prometheus
-  name: ingress
+  name: prometheus-ingress
   annotations:
-    #nginx.ingress.kubernetes.io/upstream-hash-by: "true"
     nginx.ingress.kubernetes.io/group.name: "ssgpang"
 spec:
   ingressClassName: nginx
   rules:
-  - http:
+  - host: yourdomain.com
+    http:
       paths:
       - path: /prometheus
         pathType: Prefix
