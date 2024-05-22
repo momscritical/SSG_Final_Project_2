@@ -2,17 +2,17 @@
 
 # Apply를 원하는 YAML 파일들의 경로 목록
 yaml_files=(
-    "code/ingress-controller.yaml"
-    "code/namespace.yaml"
-    "code/nginx_cm.yaml"
-    "code/service_account.yaml"
-    "code/azure-db-dns.yaml"
-    "code/azure-secret.yaml"
-    "code/was-dep.yaml"
-    "code/was-svc.yaml"
-    "code/web-dep.yaml"
-    "code/web-svc.yaml"
-    "code/ingress.yaml"
+    "code-azure/ingress-controller.yaml"
+    "code-azure/namespace.yaml"
+    "code-azure/nginx_cm.yaml"
+    "code-azure/service_account.yaml"
+    "code-azure/azure-db-dns.yaml"
+    "code-azure/azure-secret.yaml"
+    "code-azure/was-dep.yaml"
+    "code-azure/was-svc.yaml"
+    "code-azure/web-dep.yaml"
+    "code-azure/web-svc.yaml"
+    "code-azure/ingress.yaml"
 )
 
 # 각 YAML 파일을 순서대로 적용
