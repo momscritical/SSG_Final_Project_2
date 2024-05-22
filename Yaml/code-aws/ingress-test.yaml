@@ -51,28 +51,6 @@ spec:
             name: web-svc
             port:
               number: 80
-# ---
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: ingress-argo
-#   namespace: argocd
-#   annotations:
-#     kubernetes.io/ingress.class: "nginx"
-#     nginx.ingress.kubernetes.io/rewrite-target: /
-# spec:
-#   ingressClassName: nginx
-#   rules:
-#   - host: arg.jumjoo.com
-#     http:
-#       paths:
-#       - path: /
-#         pathType: Prefix
-#         backend:
-#           service:
-#             name: argocd-server
-#             port:
-#               number: 80
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -94,7 +72,7 @@ spec:
           service:
             name: argocd-server
             port:
-              name: http
+              number: 80
   tls:
   - hosts:
     - arg.jumjoo.com
