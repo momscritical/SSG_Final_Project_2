@@ -29,8 +29,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: www.jumjoo.com
-    http:
+  - http:
       paths:
       - path: /
         pathType: Prefix
