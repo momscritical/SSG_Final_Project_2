@@ -1,16 +1,30 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  namespace: dev
-  name: ingress
+  namespace: shared
+  name: shared-ingress
   annotations:
-    #nginx.ingress.kubernetes.io/upstream-hash-by: "true"
     nginx.ingress.kubernetes.io/group.name: "ssgpang"
 spec:
   ingressClassName: nginx
   rules:
-  - http:
+  - host: yourdomain.com
+    http:
       paths:
+      - path: /argocd
+        pathType: Prefix
+        backend:
+          service:
+            name: argocd-server
+            port:
+              number: 80
+      - path: /prometheus
+        pathType: Prefix
+        backend:
+          service:
+            name: prometheus-grafana
+            port:
+              number: 80
       - path: /
         pathType: Prefix
         backend:
