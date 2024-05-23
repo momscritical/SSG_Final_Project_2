@@ -41,7 +41,7 @@ for file in "${argo[@]}"; do
 done
 
 # Ingress YAML 파일을 순서대로 적용
-for file in "${argo[@]}"; do
+for file in "${ingress[@]}"; do
         kubectl apply -f "$file" -n argocd
 done
 
