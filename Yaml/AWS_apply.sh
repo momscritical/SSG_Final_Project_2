@@ -22,27 +22,27 @@ ingress=(
     "code-aws/aws-ingress.yaml"
 )
 
-# YAML 파일 적용 함수
-apply_yaml() {
-    for file in "${@}"; do
-        kubectl apply -f "$file" "$@"
-    done
-}
+# Ingress Controller & NameSpace YAML 파일을 순서대로 적용
+for file in "${base[@]}"; do
+        kubectl apply -f "$file"
+done
 
-# Ingress Controller & NameSpace YAML 파일 적용
-apply_yaml "${base[@]}"
-
-# Application YAML 파일 적용
-apply_yaml "${app[@]}"
+# Application YAML 파일을 순서대로 적용
+for file in "${app[@]}"; do
+        kubectl apply -f "$file"
+done
 
 # TLS 인증서를 Kubernetes 시크릿으로 추가
-kubectl create secret tls argo-secret --cert /home/konan/ssl/argo.crt --key /home/konan/ssl/argo.key -n argocd
+kubectl create secret tls argo-secret --cert ../OpenSSL/argo.crt --key ../OpenSSL/argo.key -n argocd
 
-# ArgoCD YAML 파일 적용
-apply_yaml "${argo[@]}" -n argocd
+# ArgoCD YAML 파일을 순서대로 적용
+for file in "${argo[@]}"; do
+        kubectl apply -f "$file" -n argocd
+done
 
-# Ingress YAML 파일 적용
-apply_yaml "${ingress[@]}" -n argocd
+# Ingress YAML 파일을 순서대로 적용
+for file in "${argo[@]}"; do
+        kubectl apply -f "$file" -n argocd
+done
 
-# ArgoCD 초기 비밀번호 출력
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
