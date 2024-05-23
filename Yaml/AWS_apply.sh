@@ -2,6 +2,7 @@
 
 # Apply를 원하는 YAML 파일들의 경로 목록
 yaml_files=(
+    "code-aws/ingress-controller.yaml"
     "code-aws/namespace.yaml"
     "code-aws/nginx_cm.yaml"
     "code-aws/service_account.yaml"
