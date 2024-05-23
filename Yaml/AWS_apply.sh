@@ -45,4 +45,5 @@ for file in "${ingress[@]}"; do
         kubectl apply -f "$file"
 done
 
+# ArgoCD 초기 비밀번호 출력
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
