@@ -2,7 +2,7 @@
 
 # Apply를 원하는 YAML 파일들의 경로 목록
 yaml_files=(
-    "https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.1/deploy/static/provider/cloud/deploy.yaml"
+    "code-base/ingress-controller.yaml"
     "code-base/namespace.yaml"
     "https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml"
     "code-base/nginx_cm.yaml"
