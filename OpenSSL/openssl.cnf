@@ -1,0 +1,15 @@
+[ req ]
+default_bits       = 2048
+default_keyfile    = argo.key
+distinguished_name = req_distinguished_name
+prompt             = no
+output_password    = $PASSWORD
+
+[ req_distinguished_name ]
+C  = JP
+ST = Tokyo
+L  = Tokyo
+O  = SSGPANG
+OU = SSGPANG
+CN = www.jumjoo.com
+emailAddress = admin@jumjoo.com
