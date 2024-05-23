@@ -16,9 +16,6 @@ openssl req -new -key $KEY_FILE -out $CSR_FILE -config $OPENSSL_CONFIG -passout 
 # 셀프 서명된 인증서 생성
 openssl x509 -req -in $CSR_FILE -signkey $KEY_FILE -out $CRT_FILE
 
-# CSR 파일 삭제 (필요 없을 경우)
-rm $CSR_FILE
-
 echo "개인 키, CSR, 그리고 셀프 서명된 인증서가 생성되었습니다:"
 echo "개인 키: $KEY_FILE"
 echo "인증서: $CRT_FILE"
