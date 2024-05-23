@@ -11,7 +11,11 @@ terraform {
     tls = { 
       source  = "hashicorp/tls" 
       version = "~> 4.0.4" 
-    } 
+    }
+    http = {
+      source = "hashicorp/http"
+      version = "3.4.2"
+    }
   }
   required_version = "~> 1.3" 
 }
@@ -26,6 +30,6 @@ provider "helm" {
   }
 }
 
-provider "kubernetes" {
-  config_path = "~/.kube/config"
+provider "http" {
+  # Configuration options
 }
