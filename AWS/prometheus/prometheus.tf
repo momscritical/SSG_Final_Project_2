@@ -2,8 +2,6 @@ resource "kubernetes_namespace" "prometheus-namespace" { # namespace 생성
   metadata {
     name = "prometheus"
   }
-
-  depends_on = [ module.final_eks ]
 }
 
 resource "helm_release" "prometheus" { # helm release 를 사용해서 prometheus 설치 
@@ -43,6 +41,4 @@ resource "helm_release" "prometheus" { # helm release 를 사용해서 prometheu
       }
     })
   }
-  
-  depends_on = [ module.final_eks ]
 }
