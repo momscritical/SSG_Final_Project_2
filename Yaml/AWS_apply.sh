@@ -4,6 +4,7 @@
 yaml_files=(
     "code-base/ingress-controller.yaml"
     "code-base/namespace.yaml"
+    "https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml"
     "code-base/nginx_cm.yaml"
     "code-aws/service_account.yaml"
     "code-aws/aws-db-dns.yaml"
