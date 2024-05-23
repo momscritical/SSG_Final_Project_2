@@ -13,7 +13,7 @@ yaml_files=(
     "code-base/nginx_cm.yaml"
     "https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml"
     "code-base/namespace.yaml"
-    "https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.1/deploy/static/provider/cloud/deploy.yaml"
+    "code-base/ingress-controller.yaml"
 )
 
 # 각 YAML 파일을 역순으로 적용
