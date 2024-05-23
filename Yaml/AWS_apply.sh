@@ -17,6 +17,15 @@ yaml_files=(
 )
 
 # 각 YAML 파일을 순서대로 적용
+# for file in "${yaml_files[@]}"; do
+#     kubectl apply -f "$file"
+# done
+
+# 각 YAML 파일을 순서대로 적용
 for file in "${yaml_files[@]}"; do
-    kubectl apply -f "$file"
+    if [ "$file" == "https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml" ]; then
+        kubectl apply -f "$file" -n argocd
+    else
+        kubectl apply -f "$file"
+    fi
 done
