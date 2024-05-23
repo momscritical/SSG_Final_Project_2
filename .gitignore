@@ -34,3 +34,7 @@ terraform.rc
 
 #secret-key
 *-secret.yaml
+
+*.crt
+*.csr
+*.key
