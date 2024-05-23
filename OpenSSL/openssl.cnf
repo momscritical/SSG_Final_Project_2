@@ -1,15 +1,21 @@
 [ req ]
-default_bits       = 2048
-default_keyfile    = argo.key
-distinguished_name = req_distinguished_name
-prompt             = no
-output_password    = $PASSWORD
+default_bits        = 2048
+distinguished_name  = req_distinguished_name
+req_extensions      = req_ext
+prompt              = no
 
 [ req_distinguished_name ]
-C  = JP
-ST = Tokyo
-L  = Tokyo
-O  = SSGPANG
-OU = SSGPANG
-CN = www.jumjoo.com
-emailAddress = admin@jumjoo.com
+C                   = JP
+ST                  = Tokyo
+L                   = Tokyo
+O                   = SSGPANG
+OU                  = SSGPANG
+CN                  = www.jumjoo.com
+emailAddress        = admin@jumjoo.com
+
+[ req_ext ]
+subjectAltName      = @alt_names
+
+[ alt_names ]
+DNS.1               = www.jumjoo.com
+DNS.2               = jumjoo.com
