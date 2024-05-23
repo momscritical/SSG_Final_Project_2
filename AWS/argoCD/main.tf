@@ -1,4 +1,4 @@
-resource "kubernetes_namespace" "prometheus-namespace" { # namespace 생성
+resource "kubernetes_namespace" "argo-namespace" { # namespace 생성
   metadata {
     name = "argocd"
   }
