@@ -42,7 +42,7 @@ done
 
 # Ingress YAML 파일을 순서대로 적용
 for file in "${ingress[@]}"; do
-        kubectl apply -f "$file" -n argocd
+        kubectl apply -f "$file"
 done
 
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
