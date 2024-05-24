@@ -32,8 +32,8 @@ module "final_sg" {
 
   bastion_sg_name = var.bastion_sg_config.name
   cp_sg_name      = var.cp_sg_config.name
-  app_sg_name     = var.app_sg_config.name
-  set_sg_name     = var.set_sg_config.name
+  # app_sg_name     = var.app_sg_config.name
+  # set_sg_name     = var.set_sg_config.name
   db_sg_name      = var.db_sg_config.name
   elb_sg_name     = var.elb_sg_config.name
 
@@ -52,26 +52,26 @@ module "final_sg" {
     }
   ]
   
-  app_ing_rules = [
-    {
-      from_port       = var.app_sg_config.ing_port[0]
-      to_port         = var.app_sg_config.ing_port[0]
-      security_groups = [ module.final_sg.bastion_sg_id ]
-    },
-    {
-      from_port       = var.app_sg_config.ing_port[1]
-      to_port         = var.app_sg_config.ing_port[1]
-      security_groups = [ module.final_sg.elb_sg_id ]
-    }
-  ]
+  # app_ing_rules = [
+  #   {
+  #     from_port       = var.app_sg_config.ing_port[0]
+  #     to_port         = var.app_sg_config.ing_port[0]
+  #     security_groups = [ module.final_sg.bastion_sg_id ]
+  #   },
+  #   {
+  #     from_port       = var.app_sg_config.ing_port[1]
+  #     to_port         = var.app_sg_config.ing_port[1]
+  #     security_groups = [ module.final_sg.elb_sg_id ]
+  #   }
+  # ]
 
-  set_ing_rules = [
-    {
-      from_port       = var.set_sg_config.ing_port[0]
-      to_port         = var.set_sg_config.ing_port[0]
-      security_groups = [ module.final_sg.bastion_sg_id ]
-    }
-  ]
+  # set_ing_rules = [
+  #   {
+  #     from_port       = var.set_sg_config.ing_port[0]
+  #     to_port         = var.set_sg_config.ing_port[0]
+  #     security_groups = [ module.final_sg.bastion_sg_id ]
+  #   }
+  # ]
 
   db_ing_rules = [
     {

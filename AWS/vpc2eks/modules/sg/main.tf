@@ -52,59 +52,59 @@ resource "aws_security_group" "cp" {
   }
 }
 
-resource "aws_security_group" "app" { 
-  name        = var.app_sg_name
-  description = "Security Group for Application Nodes"
-  vpc_id      = var.vpc_id
+# resource "aws_security_group" "app" { 
+#   name        = var.app_sg_name
+#   description = "Security Group for Application Nodes"
+#   vpc_id      = var.vpc_id
 
-  dynamic "ingress" {
-    for_each = var.app_ing_rules
-    content {
-      from_port       = ingress.value.from_port
-      to_port         = ingress.value.to_port
-      protocol        = "tcp"
-      security_groups = ingress.value.security_groups
-    }
-  }
+#   dynamic "ingress" {
+#     for_each = var.app_ing_rules
+#     content {
+#       from_port       = ingress.value.from_port
+#       to_port         = ingress.value.to_port
+#       protocol        = "tcp"
+#       security_groups = ingress.value.security_groups
+#     }
+#   }
 
-  egress {
-    from_port     = 0
-    to_port       = 0
-    protocol      = "-1"
-    cidr_blocks   = ["0.0.0.0/0"]
-  }
+#   egress {
+#     from_port     = 0
+#     to_port       = 0
+#     protocol      = "-1"
+#     cidr_blocks   = ["0.0.0.0/0"]
+#   }
 
-  tags = {
-    Name = var.app_sg_name
-  }
-}
+#   tags = {
+#     Name = var.app_sg_name
+#   }
+# }
 
-resource "aws_security_group" "set" {
-  name        = var.set_sg_name
-  description = "Security Group for was EKS Setting Node" 
-  vpc_id      = var.vpc_id
+# resource "aws_security_group" "set" {
+#   name        = var.set_sg_name
+#   description = "Security Group for was EKS Setting Node" 
+#   vpc_id      = var.vpc_id
 
-  dynamic "ingress" {
-    for_each = var.set_ing_rules
-    content {
-      from_port       = ingress.value.from_port
-      to_port         = ingress.value.to_port
-      protocol        = "tcp"
-      security_groups = ingress.value.security_groups
-    }
-  }
+#   dynamic "ingress" {
+#     for_each = var.set_ing_rules
+#     content {
+#       from_port       = ingress.value.from_port
+#       to_port         = ingress.value.to_port
+#       protocol        = "tcp"
+#       security_groups = ingress.value.security_groups
+#     }
+#   }
 
-  egress {
-    from_port     = 0
-    to_port       = 0
-    protocol      = "-1"
-    cidr_blocks   = ["0.0.0.0/0"]
-  }
+#   egress {
+#     from_port     = 0
+#     to_port       = 0
+#     protocol      = "-1"
+#     cidr_blocks   = ["0.0.0.0/0"]
+#   }
 
-  tags = {
-    Name = var.set_sg_name
-  }
-}
+#   tags = {
+#     Name = var.set_sg_name
+#   }
+# }
 
 resource "aws_security_group" "db" {
   name        = var.db_sg_name
