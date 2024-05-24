@@ -7,15 +7,20 @@
 # 10.1.11.0/24 : service subnet (for aks)
 ############################## Basic ##############################
 variable "az_prefix" {
-  description = "name prefix"
   type        = string
-  default     = "Final"
+  description = "name prefix"
+  default     = "need"
 }
 
 variable "az_loc" {
   description = "location"
   type        = string
   default     = "japanEast"
+  # koreacentral grafana 지원 안 함.
+    # southcentralus,westcentralus,westeurope,eastus,eastus2,northeurope,
+    # uksouth,australiaeast,swedencentral,westus,westus2,westus3,centralus,
+    # southeastasia,canadacentral,centralindia,eastasia,uaenorth,japaneast,
+    # francecentral,brazilsouth,norwayeast,germanywestcentral
 }
 
 ############################## Vurtual Network ##############################

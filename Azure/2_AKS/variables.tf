@@ -2,7 +2,6 @@ variable "az_prefix" {
   description = "Name prefix"
   type        = string
   default     = "Final"
-  sensitive   = true
 }
 
 variable "az_basic" {
@@ -67,4 +66,15 @@ variable "storage_account_role_name" {
   description = "Role name - Storage Account Contributor"
   type        = string
   default     = "Storage Account Contributor"
+}
+
+variable "private_dns_zone_contributor_role_name" {
+    type = string
+    description = "role name - Private DNS Zone Contributor"
+    default = "Private DNS Zone Contributor"
+}
+variable "dns_zone_contributor_role_name" {
+    type = string
+    description = "role name - DNS Zone Contributor"
+    default = "DNS Zone Contributor"
 }

@@ -33,21 +33,27 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-pro
-  namespace: prometheus
+  name: ingress-argo
+  namespace: argocd
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
-  ingressClassName: nginx
   rules:
-  - host: gra.jumjoo.com
+  - host: arg.jumjoo.com
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: prometheus-grafana
+            name: argocd-server
             port:
-              number: 80
+              # number: 80 <- 대체 가능
+              name: https
+  tls:
+  - hosts:
+    - arg.jumjoo.com
+    secretName: argo-secret

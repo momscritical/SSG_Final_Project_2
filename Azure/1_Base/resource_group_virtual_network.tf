@@ -17,6 +17,4 @@ resource "azurerm_virtual_network" "vnet" {
   lifecycle {
     create_before_destroy = true
   }
-
-  depends_on = [azurerm_resource_group.rg]
 }

@@ -31,17 +31,14 @@ resource "azurerm_federated_identity_credential" "kube-fic" {
   ]
 }
 
-############################## Monitoring ##############################
-# Add required role assignment over resource group containing the Azure Monitor Workspace 
-resource "azurerm_role_assignment" "grafana" {
-  scope                = data.azurerm_resource_group.rg.id
-  role_definition_name = "Monitoring Reader"
-  principal_id         = azurerm_dashboard_grafana.graf.identity[0].principal_id
+resource "azurerm_role_assignment" "dns_zone_contributor" {
+    scope                = data.azurerm_resource_group.rg.id
+    role_definition_name = "DNS Zone Contributor"
+    principal_id         = azurerm_user_assigned_identity.uai.principal_id
 }
 
-# Add role assignment to Grafana so an admin user can log in
-resource "azurerm_role_assignment" "grafana-admin" {
-  scope                = azurerm_dashboard_grafana.graf.id
-  role_definition_name = "Grafana Admin"
-  principal_id         = data.azurerm_client_config.client_config.object_id
+resource "azurerm_role_assignment" "private_dns_zone_contributor" {
+    scope                = data.azurerm_resource_group.rg.id
+    role_definition_name = "Private DNS Zone Contributor"
+    principal_id         = azurerm_user_assigned_identity.uai.principal_id
 }
