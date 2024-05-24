@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: code-aws
+  namespace: argocd
+spec:
+  destination:
+    namespace: dev
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: git@github.com:momscritical/SSG_Final_Project_2.git
+    targetRevision: main
+    path: ./Yaml/code-aws
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
