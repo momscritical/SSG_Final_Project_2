@@ -18,7 +18,7 @@ resource "aws_instance" "cp" {
   vpc_security_group_ids       = var.cp_sg_id
   key_name                     = var.cp_key_name
   subnet_id                    = var.cp_subnet_id
-  associate_public_ip_address  = true
+  associate_public_ip_address  = false
   user_data                    = var.cp_user_data
 
   tags = {
