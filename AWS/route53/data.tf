@@ -8,10 +8,11 @@ data "kubernetes_ingress" "example" {
     name = "application-ingress"
     namespace = "dev"
     annotations = {
-      kubernetes.io/ingress.class = "nginx"
-      nginx.ingress.kubernetes.io/rewrite-target = "/"
+      "kubernetes.io/ingress.class" = "nginx"
+      "nginx.ingress.kubernetes.io/rewrite-target" = "/"
     }
   }
+  
 }
 
 
