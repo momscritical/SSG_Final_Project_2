@@ -1,7 +1,7 @@
 variable "az_prefix" {
   description = "Name prefix"
   type        = string
-  default     = "Final"
+  default     = "need"
 }
 
 variable "az_basic" {
