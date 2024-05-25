@@ -12,3 +12,8 @@ variable "hostname" {
   default     = "jumjoo.com"
   sensitive = true
 }
+
+variable "lb_name" {
+  type    = string
+  default = ""
+}

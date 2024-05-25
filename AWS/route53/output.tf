@@ -27,6 +27,27 @@ output "Comment" {
   value = data.aws_route53_zone.selected.comment
 }
 
-output "ARN" {
+output "arn" {
   value = data.aws_route53_zone.selected.arn
+}
+
+###
+output "ingress_status" {
+  value = data.kubernetes_ingress.example.status
+}
+
+output "ingress_load_balancer" {
+  value = data.kubernetes_ingress.example.load_balancer
+}
+
+output "ingress_ingress" {
+  value = data.kubernetes_ingress.example.ingress
+}
+
+output "ingress_ip" {
+  value = data.kubernetes_ingress.example.ip
+}
+
+output "hostname" {
+  value = data.kubernetes_ingress.example.hostname
 }
