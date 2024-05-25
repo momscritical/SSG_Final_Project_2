@@ -1,5 +1,6 @@
 output "host_name" {
   value = data.aws_route53_zone.selected.name
+  sensitive = true
 }
 
 output "name" {
