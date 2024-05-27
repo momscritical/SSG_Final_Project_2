@@ -5,4 +5,4 @@ metadata:
   namespace: dev
 spec:
   type: ExternalName
-  externalName: azure.jumjoo.com
+  externalName: 10.1.2.101
