@@ -72,38 +72,21 @@ variable "db_password" {
 }
 
 ############################## Role ##############################
-variable "network_role_name" {
-  description = "Role Name - Network Contributor"
-  type        = string
-  default     = "Network Contributor"
-}
-
-variable "storage_account_role_name" {
-  description = "Role Name - Storage Account Contributor"
-  type        = string
-  default     = "Storage Account Contributor"
-}
-
-variable "sql_security_manager_role_name" {
-  description = "Role Name - SQL Security Manager"
-  type        = string
-  default     = "SQL Security Manager"
-}
-
-variable "sql_server_contributor_role_name" {
-  description = "Role Name - SQL Server Contributor"
-  type        = string
-  default     = "SQL Server Contributor"
-}
-
-variable "private_dns_zone_contributor_role_name" {
-  description = "Role Name - Private DNS Zone Contributor"
-  type        = string
-  default     = "Private DNS Zone Contributor"
-}
-
-variable "dns_zone_contributor_role_name" {
-  description = "Role Name - DNS Zone Contributor"
-  type        = string
-  default     = "DNS Zone Contributor"
+# 권한 목록들
+variable "role_names" {
+    type = list(string)
+    description = "role name list"
+    default = [
+        "Contributor",
+        "Network Contributor",
+        "Storage Account Contributor",
+        "Storage Blob Data Contributor",
+        "SQL Security Manager",
+        "SQL Server Contributor",
+        "Private DNS Zone Contributor",
+        "DNS Zone Contributor",
+        "Azure Kubernetes Service RBAC Admin",
+        "Grafana Admin",
+        "Monitoring Reader"
+    ]
 }
