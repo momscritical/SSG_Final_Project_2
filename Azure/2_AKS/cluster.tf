@@ -49,6 +49,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     workload_identity_enabled = true
     node_resource_group = "${var.az_prefix}_node_rg"
 }
+
 resource "azurerm_kubernetes_cluster_node_pool" "svc_pool" {
     name                  = "${var.az_svc.prefix}pool"
     kubernetes_cluster_id = azurerm_kubernetes_cluster.aks_cluster.id
