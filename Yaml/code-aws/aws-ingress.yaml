@@ -19,16 +19,16 @@ spec:
             name: web-svc
             port:
               number: 80
-  - host: jumjoo.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: web-svc
-            port:
-              number: 80
+  # - host: jumjoo.com
+  #   http:
+  #     paths:
+  #     - path: /
+  #       pathType: Prefix
+  #       backend:
+  #         service:
+  #           name: web-svc
+  #           port:
+  #             number: 80
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
