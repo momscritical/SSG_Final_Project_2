@@ -28,19 +28,9 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
         }
     }
     dns_prefix = "${var.az_prefix}Cluster"
-
-    ######## modified - begin ########
     identity {
-        type = "UserAssigned"
-        identity_ids = [ data.azurerm_user_assigned_identity.uai.id ]
+        type = "SystemAssigned"
     }
-    kubelet_identity {
-        client_id = data.azurerm_user_assigned_identity.uai.client_id
-        object_id = data.azurerm_user_assigned_identity.uai.principal_id
-        user_assigned_identity_id = data.azurerm_user_assigned_identity.uai.id
-    }
-    ######## modified - end ##########
-    
     linux_profile {
         admin_username = var.uname
         ssh_key {
