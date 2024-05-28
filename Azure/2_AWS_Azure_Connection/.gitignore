@@ -33,7 +33,7 @@ terraform.rc
 *.pem
 
 #secret-key
-*-secret.yaml
+# *-secret.yaml
 
 *.crt
 *.csr
