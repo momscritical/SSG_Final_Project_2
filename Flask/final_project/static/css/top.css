@@ -1,0 +1,25 @@
+  /* 검색 폼을 가운데 정렬 */
+  .search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* 검색창 */
+  .form-control-lg.search-input {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+  }
+
+  /* 검색창 placeholder */
+  input::placeholder {
+    color: gray;
+  }
+
+  /* 검색창 돋보기 아이콘 */
+  .search-input-icon {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+  }
