@@ -13,3 +13,4 @@ resource "azurerm_subnet" "ep_subnet" {
     azurerm_resource_group.rg,
     azurerm_virtual_network.vnet
   ]
+}
