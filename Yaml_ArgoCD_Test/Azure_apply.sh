@@ -7,7 +7,7 @@ base=(
     "azure/argoCD/namespace.yaml"
 )
 app=(
-    "azure/dev/nginx_cm.yaml"
+    "azure/dev/nginx-cm.yaml"
     "azure/dev/service-account.yaml"
     "azure/dev/db-svc.yaml"
     "base_secret/azure-secret.yaml"
@@ -21,7 +21,7 @@ argo=(
 )
 ingress=(
     "azure/dev/ingress.yaml"
-    "azure/argroCD/ingress.yaml"
+    "azure/argoCD/ingress.yaml"
 )
 
 # Ingress Controller & NameSpace YAML 파일을 순서대로 적용

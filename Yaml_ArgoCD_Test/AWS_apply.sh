@@ -7,7 +7,7 @@ base=(
     "aws/argoCD/namespace.yaml"
 )
 app=(
-    "aws/dev/nginx_cm.yaml"
+    "aws/dev/nginx-cm.yaml"
     "aws/dev/service-account.yaml"
     "aws/dev/db-svc.yaml"
     "base_secret/aws-secret.yaml"
@@ -21,7 +21,7 @@ argo=(
 )
 ingress=(
     "aws/dev/ingress.yaml"
-    "aws/argroCD/ingress.yaml"
+    "aws/argoCD/ingress.yaml"
     "aws/prometheus/ingress.yaml"
 )
 

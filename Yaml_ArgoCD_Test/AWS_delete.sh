@@ -17,7 +17,7 @@ app=(
   "base_secret/aws-secret.yaml"
   "aws/dev/db-svc.yaml"
   "aws/dev/service-account.yaml"
-  "aws/dev/nginx_cm.yaml"
+  "aws/dev/nginx-cm.yaml"
 )
 base=(
   "aws/argoCD/namespace.yaml"

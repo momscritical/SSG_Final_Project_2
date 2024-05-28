@@ -16,7 +16,7 @@ app=(
   "base_secret/azure-secret.yaml"
   "azure/dev/db-svc.yaml"
   "azure/dev/service-account.yaml"
-  "azure/dev/nginx_cm.yaml"
+  "azure/dev/nginx-cm.yaml"
 )
 base=(
   "azure/argoCD/namespace.yaml"
