@@ -13,7 +13,7 @@ app=(
   "azure/dev/web-dep.yaml"
   "azure/dev/was-svc.yaml"
   "azure/dev/was-dep.yaml"
-  "azure/dev/env-secret.yaml"
+  "base_secret/azure-secret.yaml"
   "azure/dev/db-svc.yaml"
   "azure/dev/service-account.yaml"
   "azure/dev/nginx_cm.yaml"
@@ -21,7 +21,7 @@ app=(
 base=(
   "azure/argoCD/namespace.yaml"
   "azure/dev/namespace.yaml"
-  "base/ingress-controller.yaml"
+  "base_secret/ingress-controller.yaml"
 )
 
 

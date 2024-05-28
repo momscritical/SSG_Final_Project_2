@@ -2,7 +2,7 @@
 
 # Apply를 원하는 YAML 파일들의 경로 목록
 base=(
-    "base/ingress-controller.yaml"
+    "base_secret/ingress-controller.yaml"
     "aws/dev/namespace.yaml"
     "aws/argoCD/namespace.yaml"
 )
@@ -10,7 +10,7 @@ app=(
     "aws/dev/nginx_cm.yaml"
     "aws/dev/service-account.yaml"
     "aws/dev/db-svc.yaml"
-    "aws/dev/env-secret.yaml"
+    "base_secret/aws-secret.yaml"
     "aws/dev/was-dep.yaml"
     "aws/dev/was-svc.yaml"
     "aws/dev/web-dep.yaml"

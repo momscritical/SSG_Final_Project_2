@@ -14,7 +14,7 @@ app=(
   "aws/dev/web-dep.yaml"
   "aws/dev/was-svc.yaml"
   "aws/dev/was-dep.yaml"
-  "aws/dev/env-secret.yaml"
+  "base_secret/aws-secret.yaml"
   "aws/dev/db-svc.yaml"
   "aws/dev/service-account.yaml"
   "aws/dev/nginx_cm.yaml"
@@ -22,7 +22,7 @@ app=(
 base=(
   "aws/argoCD/namespace.yaml"
   "aws/dev/namespace.yaml"
-  "base/ingress-controller.yaml"
+  "base_secret/ingress-controller.yaml"
 )
 
 

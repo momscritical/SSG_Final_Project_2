@@ -32,5 +32,9 @@ terraform.rc
 *-pub
 *.pem
 
-#secret-key
+# secret-key
 *-secret.yaml
+
+*.crt
+*.csr
+*.key
