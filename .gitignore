@@ -39,4 +39,4 @@ terraform.rc
 *.csr
 *.key
 
-truncate_tables*
+truncate_tables
