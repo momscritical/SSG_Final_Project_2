@@ -4,6 +4,7 @@ Service Development Course conducted by Shinsegae I&C”
 The code was written based on training
 
 < Change >
+
 Region,
 Availability Zones,
 EKS Role Name,
