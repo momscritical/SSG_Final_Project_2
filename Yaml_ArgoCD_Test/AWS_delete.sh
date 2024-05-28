@@ -22,7 +22,6 @@ app=(
 base=(
   "aws/argoCD/namespace.yaml"
   "aws/dev/namespace.yaml"
-  "base_secret/ingress-controller.yaml"
 )
 
 
