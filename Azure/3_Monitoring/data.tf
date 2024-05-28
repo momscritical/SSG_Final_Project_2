@@ -14,3 +14,8 @@ data "azurerm_kubernetes_cluster" "aks_cluster" {
     name = "${var.az_prefix}_cluster"
     resource_group_name = data.azurerm_resource_group.rg.name
 }
+
+data "azurerm_user_assigned_identity" "uai" {
+    name = "${var.az_prefix}_master_key"
+    resource_group_name = "${var.az_prefix}_rg"
+}

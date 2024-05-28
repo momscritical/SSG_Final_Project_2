@@ -10,3 +10,8 @@ data "azurerm_virtual_network" "vnet" {
   name                = "${var.az_prefix}_vnet"
   resource_group_name = data.azurerm_resource_group.rg.name
 }
+
+data "azurerm_user_assigned_identity" "uai" {
+    name = "${var.az_prefix}_master_key"
+    resource_group_name = "${var.az_prefix}_rg"
+}

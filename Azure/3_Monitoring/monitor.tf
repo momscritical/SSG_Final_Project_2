@@ -15,7 +15,8 @@ resource "azurerm_dashboard_grafana" "graf" {
   public_network_access_enabled     = true
 
   identity {
-    type = "SystemAssigned"
+    type = "UserAssigned"
+    identity_ids = [data.azurerm_user_assigned_identity.uai.id]
   }
 
   azure_monitor_workspace_integrations {
